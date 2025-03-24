@@ -53,10 +53,10 @@ PROGRAMMER_FLAGS = -f interface/stlink.cfg -f target/stm32f4x.cfg
 
 # Flash the compiled ELF file to the STM32 microcontroller
 # The 'flash' target performs the following operations:
-#   - Program the STM32 with the specified ELF file (stm32_blink.elf)
-#   - Verify the programming to ensure that the file was correctly flashed
-#   - Reset the STM32 device after programming
-#   - Exit OpenOCD once the process is complete
+# - Program the STM32 with the specified ELF file (stm32_blink.elf)
+# - Verify the programming to ensure that the file was correctly flashed
+# - Reset the STM32 device after programming
+# - Exit OpenOCD once the process is complete
 flash : stm32_blink.elf
 	$(PROGRAMMER) $(PROGRAMMER_FLAGS) -c "program stm32_blink.elf verify reset exit"
 

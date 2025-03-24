@@ -1,10 +1,10 @@
-## STM32F4 CMSIS Integration Guide
+# STM32F4 CMSIS Integration Guide
 
 This guide walks you through the process of downloading and integrating the CMSIS (Common Microcontroller Software Interface Standard) files for the STM32F4 series microcontrollers.
 
 CMSIS files contain the definitions of all the registers and their respective bits, making it easier to manage and configure peripherals without manually defining each register. This simplifies the development process, particularly for embedded systems, by providing a standardized interface to access hardware registers and manage peripherals.
 
-### Step 1: Download STM32CubeF4 Package (Latest Version: 1.28.0)
+## Step 1: Download STM32CubeF4 Package (Latest Version: 1.28.0)
 
 1. Open your browser and go to [STMicroelectronics Official Website](https://www.st.com/content/st_com/en.html).
 2. In the search bar, type **STM32CubeF4** to locate the package for the STM32F4 microcontroller series.
@@ -16,7 +16,7 @@ CMSIS files contain the definitions of all the registers and their respective bi
 unzip en.stm32cubef4-v1-28-0.zip
 ```
 
-### Step 2: Organize CMSIS Files
+## Step 2: Organize CMSIS Files
 
 1. Inside your project workspace, create a new folder named `chip_headers`.
 2. Within the `chip_headers` folder, create another folder named `CMSIS`.
@@ -28,7 +28,7 @@ unzip en.stm32cubef4-v1-28-0.zip
 * Delete all files and folders, except the `Include` folder. This ensures you keep only the necessary header files for your specific microcontroller.
 7. After setting up the project, copy the `chip_headers` folder and paste it into the STM32 project directory.
 
-### Step 3: Work with CMSIS Files
+## Step 3: Work with CMSIS Files
 
 The next task involves adding the paths of the subfolders within the `chip_headers` folder to the project’s include paths:
 
