@@ -1,0 +1,198 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00080000         xr
+SRAM             0x20000000         0x00020000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD Builds/gpio.o
+LOAD Builds/main.o
+LOAD Builds/stm32f411_startup.o
+                0x20020000                        _estack = (ORIGIN (SRAM) + LENGTH (SRAM))
+                0x00000200                        __max_heap_size = 0x200
+                0x00000400                        __max_stack_size = 0x400
+
+.text           0x08000000      0x318
+                0x08000000                        . = ALIGN (0x4)
+ *(.isr_vector_tbl)
+ .isr_vector_tbl
+                0x08000000      0x198 Builds/stm32f411_startup.o
+                0x08000000                vector_tbl
+ *(.text)
+ .text          0x08000198       0xcc Builds/gpio.o
+                0x08000198                led_init
+                0x080001d0                led_on
+                0x080001ec                led_off
+                0x08000208                button_init
+                0x08000240                get_button_state
+ .text          0x08000264       0x28 Builds/main.o
+                0x08000264                main
+ .text          0x0800028c       0x8c Builds/stm32f411_startup.o
+                0x0800028c                RTC_Alarm_IRQHandler
+                0x0800028c                EXTI2_IRQHandler
+                0x0800028c                DebugMon_Handler
+                0x0800028c                SPI4_IRQHandler
+                0x0800028c                TIM1_CC_IRQHandler
+                0x0800028c                DMA2_Stream5_IRQHandler
+                0x0800028c                HardFault_Handler
+                0x0800028c                DMA1_Stream5_IRQHandler
+                0x0800028c                SysTick_Handler
+                0x0800028c                PVD_IRQHandler
+                0x0800028c                SDIO_IRQHandler
+                0x0800028c                TAMP_STAMP_IRQHandler
+                0x0800028c                PendSV_Handler
+                0x0800028c                NMI_Handler
+                0x0800028c                EXTI3_IRQHandler
+                0x0800028c                TIM1_UP_TIM10_IRQHandler
+                0x0800028c                I2C3_ER_IRQHandler
+                0x0800028c                EXTI0_IRQHandler
+                0x0800028c                I2C2_EV_IRQHandler
+                0x0800028c                DMA1_Stream2_IRQHandler
+                0x0800028c                FPU_IRQHandler
+                0x0800028c                UsageFault_Handler
+                0x0800028c                DMA2_Stream2_IRQHandler
+                0x0800028c                SPI1_IRQHandler
+                0x0800028c                TIM1_BRK_TIM9_IRQHandler
+                0x0800028c                DMA2_Stream3_IRQHandler
+                0x0800028c                USART6_IRQHandler
+                0x0800028c                DMA2_Stream0_IRQHandler
+                0x0800028c                TIM4_IRQHandler
+                0x0800028c                I2C1_EV_IRQHandler
+                0x0800028c                DMA1_Stream6_IRQHandler
+                0x0800028c                DMA1_Stream1_IRQHandler
+                0x0800028c                TIM3_IRQHandler
+                0x0800028c                RCC_IRQHandler
+                0x0800028c                Default_Handler
+                0x0800028c                EXTI15_10_IRQHandler
+                0x0800028c                ADC_IRQHandler
+                0x0800028c                DMA1_Stream7_IRQHandler
+                0x0800028c                SPI5_IRQHandler
+                0x0800028c                TIM5_IRQHandler
+                0x0800028c                DMA2_Stream7_IRQHandler
+                0x0800028c                I2C3_EV_IRQHandler
+                0x0800028c                EXTI9_5_IRQHandler
+                0x0800028c                RTC_WKUP_IRQHandler
+                0x0800028c                SPI2_IRQHandler
+                0x0800028c                MemManage_Handler
+                0x0800028c                DMA1_Stream0_IRQHandler
+                0x0800028c                SVC_Handler
+                0x0800028c                EXTI4_IRQHandler
+                0x0800028c                WWDG_IRQHandler
+                0x0800028c                TIM2_IRQHandler
+                0x0800028c                OTG_FS_WKUP_IRQHandler
+                0x0800028c                TIM1_TRG_COM_TIM11_IRQHandler
+                0x0800028c                EXTI1_IRQHandler
+                0x0800028c                USART2_IRQHandler
+                0x0800028c                I2C2_ER_IRQHandler
+                0x0800028c                DMA2_Stream1_IRQHandler
+                0x0800028c                FLASH_IRQHandler
+                0x0800028c                DMA2_Stream4_IRQHandler
+                0x0800028c                BusFault_Handler
+                0x0800028c                USART1_IRQHandler
+                0x0800028c                OTG_FS_IRQHandler
+                0x0800028c                SPI3_IRQHandler
+                0x0800028c                DMA1_Stream4_IRQHandler
+                0x0800028c                I2C1_ER_IRQHandler
+                0x0800028c                DMA2_Stream6_IRQHandler
+                0x0800028c                DMA1_Stream3_IRQHandler
+                0x08000294                Reset_Handler
+ *(.rodata)
+                0x08000318                        . = ALIGN (0x4)
+                0x08000318                        _etext = .
+
+.glue_7         0x08000318        0x0
+ .glue_7        0x08000318        0x0 linker stubs
+
+.glue_7t        0x08000318        0x0
+ .glue_7t       0x08000318        0x0 linker stubs
+
+.vfp11_veneer   0x08000318        0x0
+ .vfp11_veneer  0x08000318        0x0 linker stubs
+
+.v4_bx          0x08000318        0x0
+ .v4_bx         0x08000318        0x0 linker stubs
+
+.iplt           0x08000318        0x0
+ .iplt          0x08000318        0x0 Builds/main.o
+
+.rel.dyn        0x08000318        0x0
+ .rel.iplt      0x08000318        0x0 Builds/main.o
+
+.data           0x20000000        0x0 load address 0x08000318
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sdata = .
+ *(.data)
+ .data          0x20000000        0x0 Builds/gpio.o
+ .data          0x20000000        0x0 Builds/main.o
+ .data          0x20000000        0x0 Builds/stm32f411_startup.o
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _edata = .
+
+.igot.plt       0x20000000        0x0 load address 0x08000318
+ .igot.plt      0x20000000        0x0 Builds/main.o
+
+.bss            0x20000000        0x0 load address 0x08000318
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sbss = .
+ *(.bss)
+ .bss           0x20000000        0x0 Builds/gpio.o
+ .bss           0x20000000        0x0 Builds/main.o
+ .bss           0x20000000        0x0 Builds/stm32f411_startup.o
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _ebss = .
+OUTPUT(Builds/stm32_app.elf elf32-littlearm)
+LOAD linker stubs
+
+.debug_info     0x00000000      0x571
+ .debug_info    0x00000000      0x32f Builds/gpio.o
+ .debug_info    0x0000032f       0xbe Builds/main.o
+ .debug_info    0x000003ed      0x184 Builds/stm32f411_startup.o
+
+.debug_abbrev   0x00000000      0x24e
+ .debug_abbrev  0x00000000       0xd0 Builds/gpio.o
+ .debug_abbrev  0x000000d0       0x80 Builds/main.o
+ .debug_abbrev  0x00000150       0xfe Builds/stm32f411_startup.o
+
+.debug_aranges  0x00000000       0x60
+ .debug_aranges
+                0x00000000       0x20 Builds/gpio.o
+ .debug_aranges
+                0x00000020       0x20 Builds/main.o
+ .debug_aranges
+                0x00000040       0x20 Builds/stm32f411_startup.o
+
+.debug_line     0x00000000      0x36a
+ .debug_line    0x00000000      0x194 Builds/gpio.o
+ .debug_line    0x00000194       0x64 Builds/main.o
+ .debug_line    0x000001f8      0x172 Builds/stm32f411_startup.o
+
+.debug_str      0x00000000      0x337
+ .debug_str     0x00000000      0x337 Builds/gpio.o
+                                0x2be (size before relaxing)
+ .debug_str     0x00000337      0x179 Builds/main.o
+ .debug_str     0x00000337      0x1d8 Builds/stm32f411_startup.o
+
+.comment        0x00000000       0x45
+ .comment       0x00000000       0x45 Builds/gpio.o
+                                 0x46 (size before relaxing)
+ .comment       0x00000045       0x46 Builds/main.o
+ .comment       0x00000045       0x46 Builds/stm32f411_startup.o
+
+.ARM.attributes
+                0x00000000       0x2e
+ .ARM.attributes
+                0x00000000       0x2e Builds/gpio.o
+ .ARM.attributes
+                0x0000002e       0x2e Builds/main.o
+ .ARM.attributes
+                0x0000005c       0x2e Builds/stm32f411_startup.o
+
+.debug_frame    0x00000000      0x12c
+ .debug_frame   0x00000000       0xb0 Builds/gpio.o
+ .debug_frame   0x000000b0       0x30 Builds/main.o
+ .debug_frame   0x000000e0       0x4c Builds/stm32f411_startup.o
