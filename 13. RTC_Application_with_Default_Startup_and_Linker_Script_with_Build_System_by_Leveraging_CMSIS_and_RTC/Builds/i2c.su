@@ -1,0 +1,4 @@
+Source/i2c.c:53:6:i2c1_gpiob_init	4	static
+Source/i2c.c:111:6:i2c1_single_byte_read	24	static
+Source/i2c.c:181:6:i2c1_multiple_bytes_read	32	static
+Source/i2c.c:274:6:i2c1_multiple_bytes_write	32	static

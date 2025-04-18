@@ -1,0 +1,6 @@
+Source/gpio.c:24:6:led_init	4	static
+Source/gpio.c:33:6:led_on	4	static
+Source/gpio.c:38:6:led_off	4	static
+Source/gpio.c:43:6:led_toggle	4	static
+Source/gpio.c:48:6:button_init	4	static
+Source/gpio.c:57:6:get_button_state	4	static

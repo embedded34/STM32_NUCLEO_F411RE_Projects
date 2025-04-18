@@ -1,0 +1,6 @@
+Source/spi.c:18:6:spi1_gpioa_init	4	static
+Source/spi.c:55:6:spi1_config	4	static
+Source/spi.c:88:6:spi1_transmit	24	static
+Source/spi.c:116:6:spi1_receive	16	static
+Source/spi.c:131:6:spi1_cs_enable	4	static
+Source/spi.c:136:6:spi1_cs_disable	4	static

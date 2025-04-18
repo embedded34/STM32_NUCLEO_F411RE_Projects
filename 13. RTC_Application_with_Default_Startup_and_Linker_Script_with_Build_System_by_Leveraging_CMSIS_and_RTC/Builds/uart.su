@@ -1,0 +1,6 @@
+Source/uart.c:31:6:uart2_init	8	static
+Source/uart.c:58:17:compute_uart_bd	16	static
+Source/uart.c:62:13:uart2_set_baudrate	16	static
+Source/uart.c:67:6:uart_write_character	16	static
+Source/uart.c:77:6:uart_write_formatted_string	144	static
+Source/uart.c:104:5:__io_putchar	16	static

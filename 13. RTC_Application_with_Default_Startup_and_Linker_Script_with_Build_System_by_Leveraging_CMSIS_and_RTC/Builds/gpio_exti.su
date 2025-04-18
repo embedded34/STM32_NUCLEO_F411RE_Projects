@@ -1,0 +1,2 @@
+Libs/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	16	static
+Source/gpio_exti.c:9:6:pc13_exti13_init	8	static

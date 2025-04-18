@@ -1,0 +1,27 @@
+Builds/stm32_app.elf  :
+section               size        addr
+.isr_vector            408   134217728
+.text                16156   134218144
+.rodata                932   134234304
+.ARM.extab               0   134235236
+.ARM                     8   134235236
+.preinit_array           0   134235244
+.init_array              4   134235244
+.fini_array              4   134235248
+.data                  456   536870912
+.bss                   396   536871368
+._user_heap_stack     1540   536871764
+.ARM.attributes         48           0
+.debug_frame          6540           0
+.debug_line_str        436           0
+.debug_info           5630           0
+.debug_abbrev         1773           0
+.debug_aranges         496           0
+.debug_rnglists        349           0
+.debug_macro          8097           0
+.debug_line           6170           0
+.debug_str          352421           0
+.comment                69           0
+Total               401933
+
+
